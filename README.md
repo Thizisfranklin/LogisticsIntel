@@ -32,6 +32,25 @@ Automates cleaning, transformation, encoding, and scaling of raw logistics data.
 
 Ensures consistency between training and inference data, making the system robust to messy, real-world inputs.
 
+---
+## 🧰 Tech Stack
+
+### 🧠 Machine Learning
+- XGBoost
+- Scikit-Learn
+- Pandas
+- NumPy
+
+### 🔌 API & Deployment
+- FastAPI
+- Uvicorn
+
+### 🧪 Testing & Validation
+- Postman
+- Swagger UI
+
+### 💻 Language
+- Python
 
 ```logistics-intelligence-system/
 │
@@ -67,22 +86,4 @@ Ensures consistency between training and inference data, making the system robus
 ├── Dockerfile                # (optional) containerization
 ├── README.md ```
 
----
-## 🧰 Tech Stack
 
-### 🧠 Machine Learning
-- XGBoost
-- Scikit-Learn
-- Pandas
-- NumPy
-
-### 🔌 API & Deployment
-- FastAPI
-- Uvicorn
-
-### 🧪 Testing & Validation
-- Postman
-- Swagger UI
-
-### 💻 Language
-- Python
