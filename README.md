@@ -11,7 +11,6 @@ This project shifts supply chain management from reactive to predictive. I built
 
 This system is designed as a modular, production-oriented pipeline that moves from raw logistics data → predictive modeling → real-time decision support.
 
----
 
 ### 🧠 Predictive ML Engine (`train.py`)
 
@@ -19,7 +18,6 @@ Trains an XGBoost classification model on engineered routing features such as tr
 
 Outputs a probability score indicating the likelihood of a shipment missing its delivery window, enabling proactive intervention before delays occur.
 
----
 
 ### 🔌 Production Microservice (`main.py`)
 
@@ -27,7 +25,6 @@ Deploys the trained model as a FastAPI-based microservice for real-time inferenc
 
 Allows external systems (e.g., dispatch or planning tools) to send shipment data via API requests and receive instant delay risk predictions.
 
----
 
 ### 🛠️ Feature Engineering Pipeline (`preprocessing.py`)
 
@@ -35,27 +32,42 @@ Automates cleaning, transformation, encoding, and scaling of raw logistics data.
 
 Ensures consistency between training and inference data, making the system robust to messy, real-world inputs.
 
+
+```logistics-intelligence-system/
+│
+├── data/
+│   ├── raw/                  # Original shipment, routing, and logistics data
+│   ├── processed/            # Cleaned + feature-engineered datasets
+│
+├── notebooks/
+│   ├── eda.ipynb             # Exploratory data analysis
+│   ├── modeling.ipynb        # Model experiments and validation
+│
+├── src/
+│   ├── preprocessing.py      # Data cleaning + feature engineering
+│   ├── train.py              # Model training (XGBoost)
+│   ├── predict.py            # Inference logic
+│   ├── utils.py              # Helper functions
+│
+├── models/
+│   └── xgboost_model.pkl     # Saved trained model
+│
+├── app/
+│   ├── main.py               # FastAPI app (API endpoints)
+│   └── schemas.py            # Request/response validation (Pydantic)
+│
+├── configs/
+│   └── config.yaml           # Model params, thresholds, feature settings
+│
+├── tests/
+│   ├── test_api.py           # API tests
+│   └── test_model.py         # Model validation tests
+│
+├── requirements.txt
+├── Dockerfile                # (optional) containerization
+├── README.md ```
+
 ---
-
-## 🔄 System Flow (Mapping)
-
-The components are designed to work together in a production-style workflow:
-
-1. **Raw Data → Preprocessing**
-   - Shipment, route, and operational data are cleaned and transformed using `preprocessing.py`.
-
-2. **Processed Data → Model Training**
-   - Engineered features are fed into `train.py` to train the XGBoost model.
-
-3. **Trained Model → Deployment**
-   - The trained model is serialized and loaded into `main.py`.
-
-4. **Live Data → API → Predictions**
-   - New shipment data is sent to the FastAPI endpoint.
-   - The system returns a **delay risk probability** in real time.
-
----
-
 ## 🧰 Tech Stack
 
 ### 🧠 Machine Learning
